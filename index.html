@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/game.css">
+    <link rel="shortcut icon" href="assets/images/dino/Idle (1).png" />
+    <title>Dino - CollectFood</title>
+</head>
+
+<body>
+
+    <audio id="music" type="audio/mpeg" src="assets/music/BoxCat Games - Mission.mp3" loop></audio>
+
+    <img id="dino" class="" src="assets/images/dino/Idle (1).png" alt="DINO">
+
+    <img class="food" src="assets/images/object/Mushroom_1.png" alt="Mushroom - collect">
+    <img class="food" src="assets/images/object/Mushroom_1.png" alt="Mushroom - collect">
+    <img class="food" src="assets/images/object/Mushroom_1.png" alt="Mushroom - collect">
+    <img class="food" src="assets/images/object/Mushroom_1.png" alt="Mushroom - collect">
+    <img class="food" src="assets/images/object/Mushroom_1.png" alt="Mushroom - collect">
+
+    <img class="food" src="assets/images/object/Mushroom_2.png" alt="Mushroom - collect">
+    <img class="food" src="assets/images/object/Mushroom_2.png" alt="Mushroom - collect">
+    <img class="food" src="assets/images/object/Mushroom_2.png" alt="Mushroom - collect">
+    <img class="food" src="assets/images/object/Mushroom_2.png" alt="Mushroom - collect">
+    <img class="food" src="assets/images/object/Mushroom_2.png" alt="Mushroom - collect">
+
+    <img class="food" src="assets/images/object/Mushroom_1.png" alt="Mushroom - collect">
+    <img class="food" src="assets/images/object/Mushroom_1.png" alt="Mushroom - collect">
+    <img class="food" src="assets/images/object/Mushroom_1.png" alt="Mushroom - collect">
+    <img class="food" src="assets/images/object/Mushroom_1.png" alt="Mushroom - collect">
+    <img class="food" src="assets/images/object/Mushroom_1.png" alt="Mushroom - collect">
+
+    <img class="food" src="assets/images/object/Mushroom_2.png" alt="Mushroom - collect">
+    <img class="food" src="assets/images/object/Mushroom_2.png" alt="Mushroom - collect">
+    <img class="food" src="assets/images/object/Mushroom_2.png" alt="Mushroom - collect">
+    <img class="food" src="assets/images/object/Mushroom_2.png" alt="Mushroom - collect">
+    <img class="food" src="assets/images/object/Mushroom_2.png" alt="Mushroom - collect">
+
+    <div class="nav-bar">
+        <button class="btn btn-to-pause" onclick="pause();">
+            <span>Pause</span>
+        </button>
+    
+        <button class="btn" onclick="music();">
+            <span>Music</span>
+        </button>
+    
+        <span class="btn" id="scoreboard"></span>
+    </div>
+    
+
+    <div id="modal-pause-game">
+        <div class="bg-pause">
+            <div class="modal-pause">
+                <br>
+                <h1 id="modal-title">Start</h1>
+                <span id="modal-score"> </span>
+                <span>- Options -</span>
+                <button class="btn btn-modal btn-return" onclick="pause();">Return</button>
+                <div style="display: flex;">
+                    <button class="btn btn-modal btn-restart" onclick="restart()">Restart</button>
+                    <button class="btn btn-modal btn-music" onclick="music()">Music</button>
+                </div>
+                <br>
+                <br>
+                <span>Dino - CollectFoods 2d</span>
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- GROUND -->
+    <img class="block ph0" src="assets/images/tiles/1.png" style="left: calc(128px * 0)"><img class="block ph0" src="assets/images/tiles/2.png" style="left: calc(128px * 1)"><img class="block ph0" src="assets/images/tiles/2.png" style="left: calc(128px * 2)"><img class="block ph0" src="assets/images/tiles/2.png" style="left: calc(128px * 3)"><img class="block ph0" src="assets/images/tiles/2.png" style="left: calc(128px * 4)"><img class="block ph0" src="assets/images/tiles/2.png" style="left: calc(128px * 5)"><img class="block ph0" src="assets/images/tiles/2.png" style="left: calc(128px * 6)"><img class="block ph0" src="assets/images/tiles/2.png" style="left: calc(128px * 7)"><img class="block ph0" src="assets/images/tiles/2.png" style="left: calc(128px * 8)"><img class="block ph0" src="assets/images/tiles/2.png" style="left: calc(128px * 9)"><img class="block ph0" src="assets/images/tiles/2.png" style="left: calc(128px * 10)"><img class="block ph0" src="assets/images/tiles/2.png" style="left: calc(128px * 11)"><img class="block ph0" src="assets/images/tiles/2.png" style="left: calc(128px * 12)"><img class="block ph0" src="assets/images/tiles/2.png" style="left: calc(128px * 13)"><img class="block ph0" src="assets/images/tiles/3.png" style="left: calc(128px * 14)">
+    
+    <script src="assets/js/game.js"></script>
+</body>
+
+</html>
