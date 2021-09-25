@@ -191,19 +191,19 @@ function movement(key) {
 
     if (key === "ArrowLeft" || key === "ArrowRight") {
         if (clicks == 0) {
-            dino.src = "assets/images/dino/Run (1).png";
+            dino.src = "assets/images/dino/Run-1.png";
 
             clicks++;
         } else if (clicks == 1) {
-            dino.src = "assets/images/dino/Run (3).png";
+            dino.src = "assets/images/dino/Run-2.png";
 
             clicks++;
         } else if (clicks == 2) {
-            dino.src = "assets/images/dino/Run (5).png";
+            dino.src = "assets/images/dino/Run-3.png";
 
             clicks++;
         } else {
-            dino.src = "assets/images/dino/Run (7).png";
+            dino.src = "assets/images/dino/Run-4.png";
 
             clicks = 0;
         }
