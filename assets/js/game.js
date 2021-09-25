@@ -98,7 +98,7 @@ function getCollectedFoods() {
             playerBounding.bottom < foodBounding.top ||
             playerBounding.top > foodBounding.bottom)) {
             // collectedFoods = [...collectedFoods, food];  Adiciona o elemento atual ao array de elementos sobrepostos
-            foods[i].src = "assets/images/object/Bush (4).png";
+            foods[i].src = "assets/images/object/Mushroom_eaten.png";
             score++;
             scoreboard.innerHTML = "Score: "+score;
         }
@@ -131,14 +131,14 @@ var clicks = 0;
 
 document.addEventListener('keydown', (e) => {
     if (!paused) {
-        if (e.code === "ArrowRight") {
+        if (e.code === "ArrowRight" || e.code === "KeyD" ) {
             dino.classList.remove('left');
             if (x < 1700) {
                 x += 25;
                 dino.style.left = (x + 'px');
             }
     
-        } else if (e.code === "ArrowLeft") {
+        } else if (e.code === "ArrowLeft" || e.code === "KeyA") {
             dino.classList.add('left');
     
             if (x > 0) {
@@ -148,22 +148,23 @@ document.addEventListener('keydown', (e) => {
         }
     
     
-        if (e.code === "ArrowLeft" || e.code === "ArrowRight") {
+        if ((e.code === "ArrowLeft" || e.code === "ArrowRight") || (e.code === "KeyA" || e.code === "KeyD")) {
             if (clicks == 0) {
-                dino.src = "assets/images/dino/Run (1).png";
+                dino.src = "assets/images/dino/Run-1.png";
                 clicks++;
             } else if (clicks == 1) {
-                dino.src = "assets/images/dino/Run (3).png";
+                dino.src = "assets/images/dino/Run-2.png";
                 clicks++;
             } else if (clicks == 2) {
-                dino.src = "assets/images/dino/Run (5).png";
+                dino.src = "assets/images/dino/Run-3.png";
                 clicks++;
             } else {
-                dino.src = "assets/images/dino/Run (7).png";
+                dino.src = "assets/images/dino/Run-4.png";
                 clicks = 0;
             }
+
         } else {
-            dino.src = "assets/images/dino/Idle (1).png";
+            dino.src = "assets/images/dino/Idle.png";
     
         }
     
