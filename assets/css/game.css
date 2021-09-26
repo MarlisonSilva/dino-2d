@@ -181,6 +181,27 @@ body{
     
 }
 
+
+/* MOBILE */
+
+.controls {
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    top: 88vh;
+    height: 11vh;
+    width: 100vw;
+
+}
+
+.controls span {
+    font-size: 10vh;
+    display: inline-block;
+    height: 100%;
+    
+}
+
+
 @media screen and (max-width: 800px) {
     .modal-pause {
         width: 80vw;

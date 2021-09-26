@@ -202,6 +202,16 @@ document.addEventListener('keydown', (e) => {
 
 
 // MOBILE
+document.body.querySelector('#arrow-left').onclick = function(){
+    let key = "ArrowLeft";
+    movement(key);
+};
+
+document.body.querySelector('#arrow-right').onclick = function(){
+    let key = "ArrowRight";
+    movement(key);
+};
+
 function movement(key) {
     if (key === "ArrowRight") {
         dino.classList.remove('left');
