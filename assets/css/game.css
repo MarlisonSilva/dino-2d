@@ -2,16 +2,15 @@
     border: none;
     margin: 0;
     padding: 0;
-    overflow-y: hidden;
-    overflow-x: hidden;
+    overflow: hidden;
 
 }
 
 body{
     background-image: url("../images/bg/BG.png");
     background-size: auto 100vh;
-    overflow-y: hidden;
-    overflow-x: hidden;
+    overflow: hidden;
+    
 
 }
 
@@ -26,28 +25,12 @@ body{
 }
 
 
-/* BLOCK */
-
-.block{
-    position: absolute;
-}
-
-.ph0{
-    top: calc(100vh - 128px);
-}
-
-.ph1{
-    top: calc(100vh - 256px);
-}
-
-
-
 /* DINO */
 
 #dino{
     position: absolute; 
-    height: 128px; 
-    top: calc(100vh - 256px); 
+    height: 13vh; 
+    top: 73vh; 
     left: 0;
 }
 
@@ -56,6 +39,44 @@ body{
     -o-transform: scaleX(-1);
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
+}
+
+
+/* GROUND */
+.ground-top {
+    position: absolute;
+    top: 85vh;
+    left: 0;
+    right: 100vw;
+    height: 2vh;
+    width: 100vw;
+
+    background: rgb(20,148,0);
+    background: linear-gradient(180deg, rgba(20,148,0,1) 0%, rgba(32,80,0,1) 35%, rgb(60, 73, 0) 100%);
+}
+
+.ground {
+    position: absolute;
+    background: rgb(148,70,0);
+    background: linear-gradient(180deg, rgba(148,70,0,1) 0%, rgba(80,46,0,1) 35%, rgb(36, 14, 0) 100%);
+    
+    top: 87vh;
+    left: 0;
+    right: 100vw;
+    height: 13vh;
+    width: 100vw;
+   
+   
+}
+
+/* BLOCK */
+
+.block{
+    position: absolute;
+}
+
+.ph0{
+    top: 85vh;
 }
 
 
@@ -85,7 +106,7 @@ body{
 .food{
     position: absolute; 
     display: block;
-    height: 32px; 
+    height: 28px; 
     top: -100px; 
     left: -100px;
 
@@ -160,4 +181,8 @@ body{
     
 }
 
-
+@media screen and (max-width: 800px) {
+    .modal-pause {
+        width: 80vw;
+    }
+}

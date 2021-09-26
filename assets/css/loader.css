@@ -40,6 +40,7 @@
 
 }
 
+/* ANIMATION LOADING */
 @keyframes spin {
     50% {
         transform: rotate(360deg);

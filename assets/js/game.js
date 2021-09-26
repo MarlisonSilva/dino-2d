@@ -5,8 +5,14 @@ var paused = true;
 var foods = document.querySelectorAll('.food');
 var score = 0;
 
+
+function resizedScreen() {
+    paused = true;
+    modalPause();
+
+}
+
 function pause(){
-    
     if(paused){
         paused = false;
         fallingFood();
@@ -44,16 +50,17 @@ function fallingFood() {
     
     if (!paused){
         if (timing < 400) {
-            console.log(timing)
             if (mushs < 20 && (Number.isInteger(timing / 20))) {
                 
                 // Gerador de número de 0 a 9
                 var posFood = Math.floor(Math.random() * 10);
                 // Positioning foods
-                foods[mushs].style.left = ((posFood * 100 + 100) + 'px');
+                console.log(posFood)
+                foods[mushs].style.left = ((posFood * 10) + 'vw');
+                console.log(foods[mushs].style.left)
+
                 setedFoods = [...setedFoods, foods[mushs]];
                 mushs++;
-    
             }
     
             timing++;
@@ -65,14 +72,16 @@ function fallingFood() {
         for (let i = 0; i < setedFoods.length; i++) {
             posY[i] = setedFoods[i].style.top;
             rowPosY[i] = posY[i].substring(0, posY[i].length-2);
-            console.log(rowPosY[i])
             if(String(parseInt(rowPosY[i])) == "NaN"){
-                console.log('NaaaN')
                 setedFoods[i].style.top = '-100px';
     
-            } else{
-                setedFoods[i].style.top = parseInt(rowPosY[i])+25 + 'px';
-    
+            } else { 
+                if (rowPosY[i] < ($(window).height() - 30)) {
+                    setedFoods[i].style.top = parseInt(rowPosY[i])+25 + 'px';
+                } else {
+                    setedFoods[i].style.left = '-100px';
+                }
+                
             }
     
         }
@@ -82,6 +91,7 @@ function fallingFood() {
 
     }
 }
+
 function getCollectedFoods() {
     const dino = document.querySelector('#dino');
     const playerBounding = dino.getBoundingClientRect();
@@ -121,9 +131,11 @@ function music() {
 
 }
 
+var viewport = 'desktop';
 var x = 0;
 var y = 0;
-
+var speed = 2;
+var limiteScreen = 90; //0 - 100
 const dino = document.body.querySelector('#dino');
 var clicks = 0;
 
@@ -131,19 +143,31 @@ var clicks = 0;
 
 document.addEventListener('keydown', (e) => {
     if (!paused) {
+        var viewportWidth = $(window).width();
+        if (viewportWidth < 400) {
+            speed = 5;
+            limiteScreen = 70;
+        } else if (viewportWidth < 800) {
+            speed = 4.5;
+            limiteScreen = 82;
+        } else if (viewportWidth < 1200) {
+            speed = 4;
+            limiteScreen = 85;
+        }
+
         if (e.code === "ArrowRight" || e.code === "KeyD" ) {
             dino.classList.remove('left');
-            if (x < 1700) {
-                x += 25;
-                dino.style.left = (x + 'px');
+            if (x < limiteScreen) {
+                x += speed;
+                dino.style.left = (x + 'vw');
             }
     
         } else if (e.code === "ArrowLeft" || e.code === "KeyA") {
             dino.classList.add('left');
     
             if (x > 0) {
-                x -= 25;
-                dino.style.left = (x + 'px');
+                x -= speed;
+                dino.style.left = (x + 'vw');
             }
         }
     
@@ -163,6 +187,9 @@ document.addEventListener('keydown', (e) => {
                 clicks = 0;
             }
 
+        } else if(e.code === "Space") {
+            dino.src = "assets/images/dino/Idle.png";
+            pause();
         } else {
             dino.src = "assets/images/dino/Idle.png";
     
@@ -175,7 +202,6 @@ document.addEventListener('keydown', (e) => {
 
 
 // MOBILE
-
 function movement(key) {
     if (key === "ArrowRight") {
         dino.classList.remove('left');
