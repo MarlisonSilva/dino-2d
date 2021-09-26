@@ -1,0 +1,47 @@
+.loader-screen{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #16191e;
+    position: absolute;
+    z-index: 2000;
+}
+
+.loader {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    border: 10px none lightslategray;
+    border-style: solid;
+    border-top-color: lightseagreen;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    animation: spin 2.5s infinite linear;
+    
+}
+
+.loader + span {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    color: white;
+    top: 170px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100px;
+    width: 100px;
+
+}
+
+@keyframes spin {
+    50% {
+        transform: rotate(360deg);
+    }
+}
