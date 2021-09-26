@@ -218,7 +218,7 @@ function movement(key) {
         x += 25;
         dino.style.left = (x + 'px');
 
-    } else if (e.code === "ArrowLeft") {
+    } else if (key === "ArrowLeft") {
         dino.classList.add('left');
         x -= 25;
         dino.style.left = (x + 'px');
