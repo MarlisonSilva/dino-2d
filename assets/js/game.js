@@ -213,35 +213,55 @@ document.body.querySelector('#arrow-right').onclick = function(){
 };
 
 function movement(key) {
-    if (key === "ArrowRight") {
-        dino.classList.remove('left');
-        x += 25;
-        dino.style.left = (x + 'px');
-
-    } else if (key === "ArrowLeft") {
-        dino.classList.add('left');
-        x -= 25;
-        dino.style.left = (x + 'px');
-
-    }
-
-    if (key === "ArrowLeft" || key === "ArrowRight") {
-        if (clicks == 0) {
-            dino.src = "assets/images/dino/Run-1.png";
-
-            clicks++;
-        } else if (clicks == 1) {
-            dino.src = "assets/images/dino/Run-2.png";
-
-            clicks++;
-        } else if (clicks == 2) {
-            dino.src = "assets/images/dino/Run-3.png";
-
-            clicks++;
-        } else {
-            dino.src = "assets/images/dino/Run-4.png";
-
-            clicks = 0;
+    if (!paused) {
+        var viewportWidth = $(window).width();
+        if (viewportWidth < 400) {
+            speed = 5;
+            limiteScreen = 70;
+        } else if (viewportWidth < 800) {
+            speed = 4.5;
+            limiteScreen = 82;
+        } else if (viewportWidth < 1200) {
+            speed = 4;
+            limiteScreen = 85;
         }
+
+        if (key === "ArrowRight") {
+            dino.classList.remove('left');
+            if (x < limiteScreen) {
+                x += speed;
+                dino.style.left = (x + 'vw');
+            }
+    
+        } else if (key === "ArrowLeft") {
+            dino.classList.add('left');
+    
+            if (x > 0) {
+                x -= speed;
+                dino.style.left = (x + 'vw');
+            }
+        }
+    
+    
+        if ((key === "ArrowLeft" || key === "ArrowRight")) {
+            if (clicks == 0) {
+                dino.src = "assets/images/dino/Run-1.png";
+                clicks++;
+            } else if (clicks == 1) {
+                dino.src = "assets/images/dino/Run-2.png";
+                clicks++;
+            } else if (clicks == 2) {
+                dino.src = "assets/images/dino/Run-3.png";
+                clicks++;
+            } else {
+                dino.src = "assets/images/dino/Run-4.png";
+                clicks = 0;
+            }
+
+        } else {
+            dino.src = "assets/images/dino/Idle.png";
+    
+        }
+    
     }
 }
