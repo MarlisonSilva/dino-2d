@@ -186,7 +186,7 @@ body{
 
 .controls {
     position: absolute;
-    display: flex;
+    display: none;
     justify-content: space-around;
     top: 88vh;
     height: 11vh;
@@ -205,5 +205,9 @@ body{
 @media screen and (max-width: 800px) {
     .modal-pause {
         width: 80vw;
+    }
+
+    .controls {
+        display: flex;
     }
 }
