@@ -55,9 +55,9 @@ function fallingFood() {
                 // Gerador de número de 0 a 9
                 var posFood = Math.floor(Math.random() * 10);
                 // Positioning foods
-                console.log(posFood)
+                // console.log(posFood)
                 foods[mushs].style.left = ((posFood * 10) + 'vw');
-                console.log(foods[mushs].style.left)
+                // console.log(foods[mushs].style.left)
 
                 setedFoods = [...setedFoods, foods[mushs]];
                 mushs++;
@@ -202,12 +202,12 @@ document.addEventListener('keydown', (e) => {
 
 
 // MOBILE
-document.body.querySelector('#arrow-left').onclick = function(){
+document.body.querySelector('#arrow-left').ontouchstart = function(){
     let key = "ArrowLeft";
     movement(key);
 };
 
-document.body.querySelector('#arrow-right').onclick = function(){
+document.body.querySelector('#arrow-right').ontouchstart = function(){
     let key = "ArrowRight";
     movement(key);
 };
